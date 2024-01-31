@@ -9,6 +9,7 @@ import { Dashboard } from "../pages/Dashboard";
 import { Login } from "../pages/Login";
 import { Private_Routes } from "./Private_Routes";
 import { Public_Routes } from "./Public_Routes";
+import { Signup } from "../pages/Signup";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
       </Route>
       <Route path="" element={<Public_Routes />}>
         <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
       </Route>
     </Route>
   )

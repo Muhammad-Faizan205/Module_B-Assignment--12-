@@ -1,8 +1,8 @@
 import { Stack, Paper, Typography, Button } from "@mui/material";
 import { Input_Component } from "../components/Input_Component";
-import { credentials_data } from "../utils/credentials_data";
+// import { credentials_data } from "../utils/credentials_data";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   // let userdata = {}
@@ -19,21 +19,14 @@ const Login = () => {
     // ...
   };
 
-  const submitHandle = (e) => {
-    e.preventDefault();
-    const { username, password } = userData;
+  const submitHandle = () => {
+    const { email, password } = userData;
     if (
-      username === credentials_data.username &&
-      password === credentials_data.password
+      email,
+      password
     ) {
-      localStorage.setItem("isLoggedIn", true);
       navigate("/");
-    } else {
-      alert("Invalid credentials!");
-
     }
-
-    // credentials_data
   };
   return (
     <Stack className="min-h-[100dvh] justify-center items-center ">
@@ -49,8 +42,8 @@ const Login = () => {
           </Typography>
           {/* <Stack spacing={3}> */}
           <Input_Component
-            placeholder="Enter Username"
-            type="text"
+            placeholder="Enter Email"
+            type="email"
             id="username"
             onChange={onChangeHandle}
             required={true}
@@ -72,6 +65,9 @@ const Login = () => {
           >
             Submit
           </Button>
+          <Stack className="flex  mt-5">
+            Don't have an account? <Link to="/signup" className="text-blue-500 hover:underline text-1xl">Sign up here</Link>
+          </Stack>
           {/* </Stack> */}
         </Paper>
       </div>
